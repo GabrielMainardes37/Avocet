@@ -1,4 +1,4 @@
-# Avocet Framework Hybrid License
+# Avocet Framework License
 ## Version 1.0, July 2026 
 **Copyright (c) 2026 The Avocet Framework Authors**
 
