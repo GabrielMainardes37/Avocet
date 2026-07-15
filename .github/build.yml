@@ -1,0 +1,48 @@
+name: Avocet Framework CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-hosted-simulator:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-dev
+
+    - name: Compile Desktop Simulator Workspace
+      run: |
+        mkdir -p build
+        make compile_desktop
+
+  build-baremetal-kernel:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Install i686 Cross-Compiler Toolchain
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc-multilib nasm
+
+    - name: Compile Freestanding Kernel Objects
+      run: |
+        mkdir -p build
+        make compile_kernel
+        make compile_shell
