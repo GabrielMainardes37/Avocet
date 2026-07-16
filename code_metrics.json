@@ -1,0 +1,331 @@
+{
+  "generated_at": "2026-07-15T22:14:22.281142Z",
+  "total_lines": 3883,
+  "file_count": 81,
+  "files": [
+    {
+      "path": "fix_imports.py",
+      "lines": 25
+    },
+    {
+      "path": "kernel/boot/boot.asm",
+      "lines": 110
+    },
+    {
+      "path": "kernel/boot/entry.c",
+      "lines": 39
+    },
+    {
+      "path": "kernel/cpu/gdt.c",
+      "lines": 48
+    },
+    {
+      "path": "kernel/cpu/idt.c",
+      "lines": 66
+    },
+    {
+      "path": "kernel/cpu/isr.asm",
+      "lines": 99
+    },
+    {
+      "path": "kernel/cpu/isr_handlers.c",
+      "lines": 57
+    },
+    {
+      "path": "kernel/drivers/keyboard.c",
+      "lines": 78
+    },
+    {
+      "path": "kernel/drivers/screen.c",
+      "lines": 100
+    },
+    {
+      "path": "kernel/drivers/timer.c",
+      "lines": 60
+    },
+    {
+      "path": "kernel/include/cpu/gdt.h",
+      "lines": 22
+    },
+    {
+      "path": "kernel/include/cpu/idt.h",
+      "lines": 32
+    },
+    {
+      "path": "kernel/include/drivers/keyboard.h",
+      "lines": 7
+    },
+    {
+      "path": "kernel/include/drivers/screen.h",
+      "lines": 8
+    },
+    {
+      "path": "kernel/include/drivers/timer.h",
+      "lines": 8
+    },
+    {
+      "path": "kernel/include/kernel.h",
+      "lines": 37
+    },
+    {
+      "path": "kernel/include/memory/kheap.h",
+      "lines": 20
+    },
+    {
+      "path": "kernel/include/memory/pmm.h",
+      "lines": 8
+    },
+    {
+      "path": "kernel/include/memory/vmm.h",
+      "lines": 7
+    },
+    {
+      "path": "kernel/kprint.c",
+      "lines": 39
+    },
+    {
+      "path": "kernel/link.ld",
+      "lines": 30
+    },
+    {
+      "path": "kernel/main.c",
+      "lines": 40
+    },
+    {
+      "path": "kernel/Makefile",
+      "lines": 41
+    },
+    {
+      "path": "kernel/memory/kheap.c",
+      "lines": 95
+    },
+    {
+      "path": "kernel/memory/pmm.c",
+      "lines": 91
+    },
+    {
+      "path": "kernel/memory/vmm.c",
+      "lines": 29
+    },
+    {
+      "path": "line_count.py",
+      "lines": 56
+    },
+    {
+      "path": "Makefile",
+      "lines": 28
+    },
+    {
+      "path": "python/desktop/desktop_launcher.py",
+      "lines": 30
+    },
+    {
+      "path": "python/desktop/lock_screen.py",
+      "lines": 69
+    },
+    {
+      "path": "python/desktop/panel.py",
+      "lines": 49
+    },
+    {
+      "path": "python/desktop/workspace.py",
+      "lines": 40
+    },
+    {
+      "path": "python/lib/avocet/__init__.py",
+      "lines": 42
+    },
+    {
+      "path": "python/lib/avocet/core.py",
+      "lines": 32
+    },
+    {
+      "path": "python/lib/avocet/widgets.py",
+      "lines": 70
+    },
+    {
+      "path": "python/lib/avocet_bootstrap.py",
+      "lines": 11
+    },
+    {
+      "path": "python/lib/avocet_core.py",
+      "lines": 9
+    },
+    {
+      "path": "python/lib/avocet_math.py",
+      "lines": 54
+    },
+    {
+      "path": "python/lib/avocet_sys.py",
+      "lines": 5
+    },
+    {
+      "path": "python/lib/os_bridge.py",
+      "lines": 32
+    },
+    {
+      "path": "python/Makefile",
+      "lines": 20
+    },
+    {
+      "path": "python/src/avocet_mod.c",
+      "lines": 107
+    },
+    {
+      "path": "python/src/main.c",
+      "lines": 39
+    },
+    {
+      "path": "python/src/sys_bindings.c",
+      "lines": 63
+    },
+    {
+      "path": "shell/include/commands.h",
+      "lines": 20
+    },
+    {
+      "path": "shell/include/shell_ui.h",
+      "lines": 20
+    },
+    {
+      "path": "shell/Makefile",
+      "lines": 13
+    },
+    {
+      "path": "shell/src/commands.c",
+      "lines": 88
+    },
+    {
+      "path": "shell/src/shell_main.c",
+      "lines": 81
+    },
+    {
+      "path": "shell/terminal.py",
+      "lines": 89
+    },
+    {
+      "path": "utilities/editors/archive_manager.py",
+      "lines": 52
+    },
+    {
+      "path": "utilities/editors/color_palette.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/editors/csv_viewer.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/editors/diff_viewer.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/editors/hex_viewer.py",
+      "lines": 55
+    },
+    {
+      "path": "utilities/editors/ini_editor.py",
+      "lines": 58
+    },
+    {
+      "path": "utilities/editors/log_viewer.py",
+      "lines": 44
+    },
+    {
+      "path": "utilities/editors/md_viewer.py",
+      "lines": 52
+    },
+    {
+      "path": "utilities/editors/notes_pad.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/editors/text_editor.py",
+      "lines": 62
+    },
+    {
+      "path": "utilities/games/chess.py",
+      "lines": 71
+    },
+    {
+      "path": "utilities/games/dice.py",
+      "lines": 41
+    },
+    {
+      "path": "utilities/games/memory_match.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/games/mine_sweeper.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/games/pong.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/games/quiz.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/games/reversi.py",
+      "lines": 60
+    },
+    {
+      "path": "utilities/games/snake.py",
+      "lines": 57
+    },
+    {
+      "path": "utilities/games/tictactoe.py",
+      "lines": 75
+    },
+    {
+      "path": "utilities/games/word_search.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/Makefile",
+      "lines": 8
+    },
+    {
+      "path": "utilities/system/calculator.py",
+      "lines": 82
+    },
+    {
+      "path": "utilities/system/calendar.py",
+      "lines": 42
+    },
+    {
+      "path": "utilities/system/clock.py",
+      "lines": 41
+    },
+    {
+      "path": "utilities/system/file_browser.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/system/monitor.py",
+      "lines": 64
+    },
+    {
+      "path": "utilities/system/music_player.py",
+      "lines": 41
+    },
+    {
+      "path": "utilities/system/notes.py",
+      "lines": 51
+    },
+    {
+      "path": "utilities/system/settings.py",
+      "lines": 54
+    },
+    {
+      "path": "utilities/system/task_manager.py",
+      "lines": 49
+    },
+    {
+      "path": "utilities/system/todo_list.py",
+      "lines": 51
+    }
+  ]
+}
