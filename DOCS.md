@@ -4,6 +4,31 @@ This document provides exhaustive installation workflows for all supported opera
 
 ## 🛠️ Complete Installation Methods
 
+### 🍎 macOS (via Homebrew)
+Compilation on macOS requires the **Homebrew** package manager. Download and install it from the [Homebrew Official Website](https://brew.sh). Once installed, open your terminal (Terminal or iTerm2) and execute the commands below.
+
+#### 🍏 Native Intel or Apple Silicon Setup
+Because macOS Catalina and later do not support 32-bit local compilation, macOS hosts require an x86_64 cross-compiler toolchain to build the freestanding 32-bit kernel.
+
+```bash
+# Update Homebrew repository
+brew update
+
+# Install basic development tools, Python, assembler, and emulator
+brew install \
+  make \
+  nasm \
+  python3 \
+  qemu
+
+# Install the GNU cross-compiler toolchain for 32-bit x86 targets
+brew install x86_64-elf-gcc
+```
+
+> **Note for Apple Silicon (M1/M2/M3/M4) Users**: QEMU will seamlessly handle cross-architecture translation from your ARM64 hardware to the target 32-bit x86 environment. Ensure your local `Makefile` points to `x86_64-elf-gcc` and `x86_64-elf-ld` instead of the host `gcc` or `clang`.
+
+---
+
 ### 🪟 Windows (via MSYS2)
 First, download and install the core installer from the [MSYS2 Official Website](https://msys2.org). Launch the specific environment terminal shell matching your architectural choice below to run the package manager.
 
@@ -127,7 +152,21 @@ sudo zypper refresh && sudo zypper install -t pattern devel_basis && sudo zypper
 
 #### ❌ Error: `Python.h: No such file or directory`
 * **Cause**: The C compilation stage for the embedded engine cannot locate the Python framework header files.
-* **Fix**: Ensure you installed the development flavor of Python (`python3-dev` on Debian/Ubuntu or `python3-devel` on Fedora). If using MSYS2, make sure you launched the exact terminal corresponding to your installed package prefix (e.g., UCRT64 shell for UCRT packages).
+* **Fix**: 
+  * **Linux**: Ensure you installed the development flavor of Python (`python3-dev` on Debian/Ubuntu or `python3-devel` on Fedora).
+  * **Windows**: If using MSYS2, make sure you launched the exact terminal corresponding to your installed package prefix (e.g., UCRT64 shell for UCRT packages).
+  * **macOS**: Provide the explicit header search path to your Makefile by finding your Homebrew Python include path:
+    ```bash
+    export CFLAGS="\(CFLAGS -I\)(python3 -c 'import sysconfig; print(sysconfig.get_path("include"))')"
+    ```
+
+#### ❌ Error: `unknown target triple 'i386-unknown-unknown'` or target errors on macOS
+* **Cause**: The default Apple Clang compiler toolchain does not natively support targeting freestanding x86 32-bit ELF binaries.
+* **Fix**: Ensure you have installed `x86_64-elf-gcc` via Homebrew and update your `Makefile` variables to explicitly reference the cross-compiler toolchain:
+  ```makefile
+  CC = x86_64-elf-gcc
+  LD = x86_64-elf-ld
+  ```
 
 ---
 
@@ -150,19 +189,22 @@ sudo zypper refresh && sudo zypper install -t pattern devel_basis && sudo zypper
 * **Fix**: Check `kernel/link.ld` to ensure sections map correctly. Run `make clean && make run` to clear corrupt artifacts.
 
 #### ❌ Error: `Could not initialize SDL / GTK / Display output`
-* **Cause**: QEMU is running inside a headless environment or SSH session without graphical display forwarding.
+* **Cause**: QEMU is running inside a headless environment, an SSH session without graphical display forwarding, or a macOS terminal without Cocoa/SDL integration.
 * **Fix**: Append a fallback display argument to your QEMU execution line inside the root `Makefile`:
   ```bash
   qemu-system-x86_64 -drive format=raw,file=avocet.bin -display sdl
   ```
+  On macOS hosts, you can fall back to standard Cocoa rendering:
+  ```bash
+  qemu-system-x86_64 -drive format=raw,file=avocet.bin -display cocoa
+  ```
   If working completely headless, use `-nographic` or `-vnc :1` to interact via a network client.
 
 #### ❌ Error: `KVM: Failed to initialize / Permission Denied`
-* **Cause**: Your Linux user account lacks direct read/write privileges to the hardware acceleration node `/dev/kvm`.
-* **Fix**: Append your user to the KVM group, then log out and back in:
-  ```bash
-  sudo usermod -aG kvm \$USER
-  ```
+* **Cause**: Your Linux user account lacks direct read/write privileges to the hardware acceleration node `/dev/kvm`, or you are running on a Windows/macOS host where KVM does not exist.
+* **Fix**: 
+  * **Linux**: Append your user to the KVM group, then log out and back in: `sudo usermod -aG kvm \$USER`
+  * **Windows/macOS**: Remove the `-enable-kvm` acceleration flag from your `Makefile` or substitute it with `-accel hvf` (Hypervisor.framework) on macOS if targeting a native host architecture configuration.
 
 ## Running Avocet Framework
 To run the Avocet Framework, simply run the commands below on the root directory:
