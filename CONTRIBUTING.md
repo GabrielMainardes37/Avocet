@@ -2,10 +2,10 @@
 
 Thank you for choosing to contribute to the Avocet Framework! This layout guides developers through submitting enhancements, debugging low-level memory maps, and maintaining clean code standards across the workspace.
 
-## 📜 Behavioral Code of Conduct
+## Behavioral Code of Conduct
 By participating in this operating system development workspace, you agree to treat all contributors with respect, maintain a helpful attitude, and prioritize content helpfulness and software design stability. You can see more info at the `CODE_OF_CONDUCT.md` file.
 
-## 🛠️ Local Environment Workspace Configuration
+## Local Environment Workspace Configuration
 
 Ensure you are working inside the correct development environment matching the baseline cross-compilers:
 1. Fork the repository and sync your target development branch locally.
@@ -15,7 +15,7 @@ Ensure you are working inside the correct development environment matching the b
    - **Linux Hosts**: Use your local terminal with standard `multilib` 32-bit development libraries enabled.
 3. Verify changes compile without layout warnings before committing.
 
-## ✒️ Development Code Styles
+## Development Code Styles
 
 ### Low-Level C Standards (`kernel/`, `shell/src/`)
 - Adhere strictly to bare-metal freestanding guidelines (`-ffreestanding`).
@@ -27,7 +27,7 @@ Ensure you are working inside the correct development environment matching the b
 - All user applications must inherit structural attributes directly from the core `Widget` layout blueprints inside `widgets.py`.
 - Apply a `# type: ignore` directive to python file entries calling native `avocet_core` extensions to prevent local syntax analyzer highlighting failures.
 
-## 📥 Pull Request (PR) Submission Pipelines
+## Pull Request (PR) Submission Pipelines
 
 1. Create a dedicated feature branch containing your changes: `git checkout -b feature/your-subsystem-fix`.
 2. Clean out old executable testing files locally before initiating pushes: `make clean`.
