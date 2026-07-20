@@ -1,6 +1,6 @@
 # 🐦 Avocet Framework
 
-A custom, freestanding 32-bit operating system kernel and high-fidelity desktop ecosystem that bridges low-level C architecture with an embedded Python user space. Inspired by the premium aesthetics of mainstream distributions like Ubuntu and Fedora, Avocet implements its own user-space shell, system utilities, and games. These run on top of a custom, lightweight graphical toolkit named `avocet`, drawing inspiration from both `tkinter` and `customtkinter`.
+The Avocet Framework is a custom, freestanding 32-bit operating system kernel and high-fidelity desktop ecosystem that bridges low-level C architecture with an embedded Python user space. Inspired by the premium aesthetics of mainstream distributions like Ubuntu and Fedora, Avocet implements its own user-space shell, system utilities, and games. These run on top of a custom, lightweight graphical toolkit named `avocet`, drawing inspiration from both `tkinter` and `customtkinter`.
 
 ## 🚀 Key Architectural Features
 
