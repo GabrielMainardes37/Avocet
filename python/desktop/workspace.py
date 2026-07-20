@@ -14,8 +14,12 @@ class AvocetDesktop:
         self.side_dock.height = 25
         self.side_dock.color = self.panel_color
         
-        self.system_label = Label(2, 4, "Avocet OS")
-        self.version_label = Label(60, 4, "v0.1.0")
+        self.system_label = Label("Avocet OS")
+        self.system_label.x = 2
+        self.system_label.y = 4
+        self.version_label = Label("v0.1.0")
+        self.version_label.x = 60
+        self.version_label.y = 4
         
         self.main_window = Window(30, 40, 45, 18)
 
