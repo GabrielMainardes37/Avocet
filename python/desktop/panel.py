@@ -11,7 +11,7 @@ class AvocetPanel:
         self.height = 1
         self.bg_color = 0x111111
 
-        self.container = Toolbar(self.x, self.y, self.width, self.height, self.bg_color)
+        self.container = Toolbar(self.x, self.y, self.width)
         self.title_label = Label(2, 0, "Avocet OS", 0xE95420)
         self.clock_label = Label(36, 0, "12:00", 0xFFFFFF)
         self.mem_label = Label(62, 0, "MEM: 000M", 0xAEA79F)
